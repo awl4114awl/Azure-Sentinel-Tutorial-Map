@@ -1,1 +1,102 @@
-# Azure-Sentinel-Tutorial-Map
+<h1>Azure Sentinel Tutorial Map with Live Cyber Attacks</h1>
+
+<h2>Description</h2>
+create Azure subscription create virtual machine in azure turn the external firewall off for that vm turn the windows firewall off as well so it's super exposed to the internet and anyone can ping it from any country create a log repository in azure called a log analytics workspace which will be used to ingest our logs from the virtual machine use powershell to extract the IP address from windows log and send it to 3rd party API which will derive latitude longitutde state and province and send it back to vm which we can create a custom log with geographic data in it.set up azure sentinel within azure create a map that maps attacker data so we can see which country attacks are coming from essentiaily getting attackers ip address getting geo data from it sending it to azure mappping it.
+<br />
+
+<h2>Languages and Utilities Used</h2>
+
+- <b>PowerShell</b> 
+- <b>Microsoft Azure</b>
+- <b>Event Viewer</b>
+
+<h2>Environments Used </h2>
+
+- <b>Windows 10 VM</b> (22H2)
+- <b>Windows 10 </b> (22H2)
+
+<h2>Program walk-through:</h2>
+
+<p align="center">
+set up azure account: <br/>
+<img src="https://i.imgur.com/sDtn5Ea.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+create virtual machine (honeypot):  <br/>
+<img src="https://i.imgur.com/NxDZc38.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<img src="https://i.imgur.com/LJmZO0C.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+add my own inbound security rule  in a resourced network security group: <br/>
+<img src="https://i.imgur.com/o5yE591.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+create a log analytics workspace:  <br/>
+<img src="https://i.imgur.com/V3hjP75.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+turn sql servers off and change data collection settings to 'All Events':  <br/>
+<img src="https://i.imgur.com/Se1p7zv.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<img src="https://i.imgur.com/cVv66dr.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+connect honeypot-vm to log analytics workspace:  <br/>
+<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+add microsoft sentinel to log analytics workspace :  <br/>
+<img src="https://i.imgur.com/4Q8hkf2.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+log in to vm with remote desktop:  <br/>
+<img src="https://i.imgur.com/Tb4wLLV.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<img src="https://i.imgur.com/8G4zKMa.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+observe Event Viewer logs in vm: <br/>
+<img src="https://i.imgur.com/PKWMnaJ.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+turn firewall off on VM: <br/>
+<img src="https://i.imgur.com/nLqvtd5.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+download powershell script: <br/>
+<img src="https://i.imgur.com/O2sang4.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+get geolocation.io api key: <br/>
+<img src="https://i.imgur.com/7bJDbC1.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+run script to get data from attackers: <br/>
+<img src="https://i.imgur.com/H8QwMva.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+script runs in perpetuality looks through the event logs and grabs all the events of people who failed to login grabs ip address and gets geo data for them and then creates a log file 
+<br />
+<br />
+create custom log in log analytics workspace to bring in our custom log: <br/>
+<img src="https://i.imgur.com/qGMB4OK.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<img src="https://i.imgur.com/XntCFWQ.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+create custom fields/extract fields from raw custom log data: <br/>
+<img src="https://i.imgur.com/Zy4XWcc.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+setup map in sentinel with latitude and longitude (or country): <br/>
+<img src="https://i.imgur.com/FQn0pYX.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<img src="https://i.imgur.com/HLLVeoj.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+<br />
+</p>
+
+<!--
+ ```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
+--!>
