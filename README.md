@@ -1,4 +1,4 @@
-<h1>Azure Sentinel Tutorial MAP with LIVE CYBER ATTACKS</h1>
+<h1>Microsoft Azure Sentinel Map with Live Cyber Attacks</h1>
 
 <h2>Description</h2>
 In this tutorial I'm going to use Microsoft Azure to construct a honeypot VM. I start by creating an Azure subscription and a virtual machine. I then disable any Windows firewalls to expose the VM to the internet, thus luring attackers. Then, I create a Log Analytics Workspace in Azure and connect it to the VM for log ingestion. After that, I use a custom PowerShell script to look up the attackers Geolocation information. Once that's over I create a custom log with this data, set up Azure Sentinel, and create a map using Sentinel to visualize attacker data and their geographic origins.
@@ -73,7 +73,7 @@ get geolocation.io api key: <br/>
 run script to get data from attackers: <br/>
 <img src="https://i.imgur.com/H8QwMva.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
 <br />
--script runs in perpetuality looks through the event logs and grabs all the events of people who failed to login grabs ip address and gets geo data for them and then creates a log file 
+-script runs in perpetuality looks through the event logs and grabs all the events of people who failed to login grabs ip address and gets geo data for them and then creates a log file (full script --> https://shorturl.at/8fP31)
 <br />
 <br />
 create custom log in log analytics workspace to bring in our custom log: <br/>
@@ -88,7 +88,7 @@ create custom fields/extract fields from raw custom log data: <br/>
 setup map in sentinel with latitude and longitude (or country), also create a new workbook in Microsoft Sentinel and add a new Query: <br/>
 <img src="https://i.imgur.com/FQn0pYX.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
 <br />
--full query --> 
+full query used --> https://shorturl.at/6hpTO
 <br />
 <br />
 world map of incoming attacks after 2 hours (built custom logs with geodata included): <br/>
