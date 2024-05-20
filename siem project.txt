@@ -1,0 +1,36 @@
+SIEM project
+
+create Azure subscription create virtual machine in azure turn the external firewall off for that vm turn the windows firewall off as well so it's super exposed to the internet and anyone can ping it from any country 
+
+we want vm to be enticing to attackers, we want people to discover it really quickly. 
+
+next create a log repository in azure called a log analytics workspace which will be used to ingest our logs from the virtual machine
+
+set up azure sentinel within azure, it's essentially microsof's cloud native SIEM used to create a map that maps attacker data so we can see which country attacks are coming from
+
+use powershell to extract the IP address from windows log and send it to 3rd party API which will derive latitude longitutde state and province and send it back to vm which we can create a custom log with geographic data in it.
+
+essentiaily getting attackers ip address getting geo data from it sending it to azure mappping it.
+
+
+
+
+
+
+1. set up azure account 
+2. create virtual machine (honeypot)
+3. add my own inbound security rule  in a resourced network security group 
+4. create a log analytics workspace 
+5. turn sql servers off and change data collection settings to 'All Events'
+6. connect honeypot-vm to log analytics workspace 
+7. add microsoft sentinel to log analytics workspace 
+8. log in to vm with remote desktop 
+9. observe Event Viewer logs in vm 
+10. turn firewall off on VM
+11. download powershell script
+12. get geolocation.io api key
+13. run script to get data from attackers
+script runs in perpetuality looks through the event logs and grabs all the events of people who failed to login grabs ip address and gets geo data for them and then creates a log file 
+14. create custom log in log analytics workspace to bring in our custom log
+15. create custom fields/extract fields from raw custom log data
+16. setup map in sentinel with latitude and longitude (or country)
