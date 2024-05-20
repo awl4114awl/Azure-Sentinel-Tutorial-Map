@@ -1,14 +1,15 @@
-<h1>Azure Sentinel Tutorial Map with Live Cyber Attacks</h1>
+<h1>Azure Sentinel Tutorial MAP with LIVE CYBER ATTACKS</h1>
 
 <h2>Description</h2>
-create Azure subscription create virtual machine in azure turn the external firewall off for that vm turn the windows firewall off as well so it's super exposed to the internet and anyone can ping it from any country create a log repository in azure called a log analytics workspace which will be used to ingest our logs from the virtual machine use powershell to extract the IP address from windows log and send it to 3rd party API which will derive latitude longitutde state and province and send it back to vm which we can create a custom log with geographic data in it.set up azure sentinel within azure create a map that maps attacker data so we can see which country attacks are coming from essentiaily getting attackers ip address getting geo data from it sending it to azure mappping it.
+In this tutorial I'm going to use Microsoft Azure to construct a honeypot VM. I start by creating an Azure subscription and a virtual machine. I then disable any Windows firewalls to expose the VM to the internet, thus luring attackers. Then, I create a Log Analytics Workspace in Azure and connect it to the VM for log ingestion. After that, I use a custom PowerShell script to look up the attackers Geolocation information. Once that's over I create a custom log with this data, set up Azure Sentinel, and create a map using Sentinel to visualize attacker data and their geographic origins.
 <br />
 
 <h2>Languages and Utilities Used</h2>
 
-- <b>PowerShell</b> 
-- <b>Microsoft Azure</b>
+- <b>PowerShell: Extract RDP failed logon logs from Windows Event Viewer</b> 
+- <b>ipgeolocation.io: IP Address to Geolocation API</b>
 - <b>Event Viewer</b>
+- <b>Microsoft Azure</b>
 
 <h2>Environments Used </h2>
 
@@ -72,7 +73,7 @@ get geolocation.io api key: <br/>
 run script to get data from attackers: <br/>
 <img src="https://i.imgur.com/H8QwMva.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
 <br />
-script runs in perpetuality looks through the event logs and grabs all the events of people who failed to login grabs ip address and gets geo data for them and then creates a log file 
+-script runs in perpetuality looks through the event logs and grabs all the events of people who failed to login grabs ip address and gets geo data for them and then creates a log file 
 <br />
 <br />
 create custom log in log analytics workspace to bring in our custom log: <br/>
@@ -84,8 +85,13 @@ create custom fields/extract fields from raw custom log data: <br/>
 <img src="https://i.imgur.com/Zy4XWcc.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
 <br />
 <br />
-setup map in sentinel with latitude and longitude (or country): <br/>
+setup map in sentinel with latitude and longitude (or country), also create a new workbook in Microsoft Sentinel and add a new Query: <br/>
 <img src="https://i.imgur.com/FQn0pYX.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
+<br />
+-full query --> 
+<br />
+<br />
+world map of incoming attacks after 2 hours (built custom logs with geodata included): <br/>
 <img src="https://i.imgur.com/HLLVeoj.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
 <br />
 <br />
