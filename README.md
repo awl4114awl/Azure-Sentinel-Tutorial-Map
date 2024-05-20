@@ -75,7 +75,7 @@ get geolocation.io api key: <br/>
 run script to get data from attackers: <br/>
 <img src="https://i.imgur.com/H8QwMva.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
 <br />
--script runs in perpetuality looks through the event logs and grabs all the events of people who failed to login grabs ip address and gets geo data for them and then creates a log file (full script --> https://shorturl.at/8fP31)
+the script runs in perpetuality looks through the event logs and grabs all the events of people who failed to login grabs ip address and gets geo data for them and then creates a log file (full script --> https://shorturl.at/8fP31)
 <br />
 <br />
 create custom log in log analytics workspace to bring in our custom log: <br/>
