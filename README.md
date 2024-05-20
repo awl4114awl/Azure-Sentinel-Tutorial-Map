@@ -47,7 +47,7 @@ connect honeypot-vm to log analytics workspace:  <br/>
 <img src="https://i.imgur.com/6rnMeTQ.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
 <br />
 <br />
-add microsoft sentinel to log analytics workspace :  <br/>
+add microsoft sentinel to log analytics workspace:  <br/>
 <img src="https://i.imgur.com/4Q8hkf2.jpeg" height="80%" width="80%" alt="Azure Sentinel Tutorial"/>
 <br />
 <br />
