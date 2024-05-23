@@ -1,6 +1,6 @@
 <h1>Microsoft Azure Sentinel Map with Live Cyber Attacks</h1>
 <p align="center">
-<img src="https://i.imgur.com/SqeHdrU.png" height="100%" width="100%" alt="Azure Sentinel Tutorial"/>
+<img src="https://i.imgur.com/SqeHdrU.png" height="50%" width="50%" alt="Azure Sentinel Tutorial"/>
 </p>
 <h2>Description</h2>
 In this tutorial I'm going to use Microsoft Azure to construct a honeypot VM. I start by creating an Azure subscription and a virtual machine. I then disable any Windows firewalls to expose the VM to the internet, thus luring attackers. Then, I create a Log Analytics Workspace in Azure and connect it to the VM for log ingestion. After that, I use a custom PowerShell script to look up the attackers Geolocation information. Once that's over I create a custom log with this data, set up Azure Sentinel, and create a map using Sentinel to visualize attacker data and their geographic origins.
